@@ -184,24 +184,25 @@
   40% { opacity: 0.7; transform: translateY(0); }
 }
 
-
-/* --- ANIMATED SOCIAL CARD (Footer) --- */
+/* --- UPDATED VISIBLE SOCIAL CARD --- */
 .social-card {
   position: relative;
-  width: 200px;
-  height: 200px;
-  background: #f8fafc; /* Light Slate */
+  width: 220px; /* Thora bada kiya */
+  height: 220px;
+  background: #f8fafc;
   border-radius: 30px;
   overflow: hidden;
-  box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
-  transition: all 1s ease-in-out;
-  margin: 0 auto; /* Center alignment */
+  box-shadow: 0 10px 30px rgba(236, 72, 153, 0.2);
+  transition: all 0.5s ease-in-out;
+  margin: 0 auto;
+  border: 4px solid #fff; /* White border for neatness */
 }
 
 .social-background {
   position: absolute;
   inset: 0;
-  background: radial-gradient(circle at 100% 107%, #f472b6 0%, #a78bfa 30%, #818cf8 60%, #60a5fa 100%); /* Pink-Purple-Blue Theme */
+  /* Pink Theme Background */
+  background: radial-gradient(circle at 100% 107%, #fbcfe8 0%, #f472b6 40%, #ec4899 70%, #db2777 100%);
 }
 
 .social-logo {
@@ -211,25 +212,24 @@
   transform: translate(50%, 50%);
   transition: all 0.6s ease-in-out;
   color: white;
-  font-weight: bold;
-  font-size: 1.2rem;
+  font-weight: 900;
+  font-size: 1.5rem;
   z-index: 10;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
+  text-shadow: 0 2px 5px rgba(0,0,0,0.2);
+  pointer-events: none; /* Text click na ho */
 }
 
 .social-box {
   position: absolute;
   padding: 10px;
   text-align: right;
-  background: rgba(255, 255, 255, 0.9);
-  border-top: 2px solid rgb(255, 255, 255);
-  border-right: 1px solid white;
+  background: #ffffff; /* Pure White */
+  border-top: 2px solid #fce7f3; /* Light pink edges */
+  border-right: 2px solid #fce7f3;
   border-radius: 10% 13% 42% 0%/10% 12% 75% 0%;
-  box-shadow: rgba(100, 100, 111, 0.364) -7px 7px 29px 0px;
+  box-shadow: -5px 5px 15px rgba(0,0,0,0.1); /* Halka saya */
   transform-origin: bottom left;
-  transition: all 1s ease-in-out;
+  transition: all 0.8s cubic-bezier(0.68, -0.55, 0.265, 1.55); /* Bouncy effect */
   display: flex;
   align-items: center;
   justify-content: center;
@@ -237,72 +237,48 @@
   z-index: 5;
 }
 
+/* Icons ko Bada aur Black kiya */
 .social-box .icon-svg {
-  width: 24px;
-  height: 24px;
-  fill: #333;
+  width: 32px; 
+  height: 32px;
+  fill: #1e293b; /* Dark Grey Color */
   transition: all 0.3s;
 }
 
+/* HOVER EFFECTS */
 .social-card:hover {
   transform: scale(1.05);
 }
 
 .social-card:hover .social-box {
-  bottom: -1px;
-  left: -1px;
+  bottom: -5px;
+  left: -5px;
 }
 
 .social-card:hover .social-logo {
-  transform: translate(0, -40px);
-  bottom: 20px;
-  right: 20px;
-  opacity: 0; /* Logo gayab ho jaye ga taake icons nazar ayen */
+  opacity: 0;
+  transform: translate(0, -50px);
 }
 
-/* --- Social Icons Positioning & Colors --- */
-
+/* COLORS ON HOVER */
 /* 1. LinkedIn (Blue) */
-.box-1 {
-  width: 85%;
-  height: 85%;
-  bottom: -85%;
-  left: -85%;
-}
-.box-1:hover { background: #0077b5; }
+.box-1 { width: 85%; height: 85%; bottom: -85%; left: -85%; }
+.box-1:hover { background: #0077b5; z-index: 20; }
 .box-1:hover .icon-svg { fill: white; }
 
-/* 2. GitHub (Black/Dark) */
-.box-2 {
-  width: 65%;
-  height: 65%;
-  bottom: -65%;
-  left: -65%;
-  transition-delay: 0.1s;
-}
-.box-2:hover { background: #333; }
+/* 2. GitHub (Black) */
+.box-2 { width: 65%; height: 65%; bottom: -65%; left: -65%; transition-delay: 0.1s; }
+.box-2:hover { background: #333; z-index: 20; }
 .box-2:hover .icon-svg { fill: white; }
 
 /* 3. Instagram (Pink) */
-.box-3 {
-  width: 45%;
-  height: 45%;
-  bottom: -45%;
-  left: -45%;
-  transition-delay: 0.2s;
-}
-.box-3:hover { background: #e4405f; }
+.box-3 { width: 45%; height: 45%; bottom: -45%; left: -45%; transition-delay: 0.2s; }
+.box-3:hover { background: #e4405f; z-index: 20; }
 .box-3:hover .icon-svg { fill: white; }
 
 /* 4. Gmail (Red) */
-.box-4 {
-  width: 25%;
-  height: 25%;
-  bottom: -25%;
-  left: -25%;
-  transition-delay: 0.3s;
-}
-.box-4:hover { background: #ea4335; }
+.box-4 { width: 25%; height: 25%; bottom: -25%; left: -25%; transition-delay: 0.3s; }
+.box-4:hover { background: #ea4335; z-index: 20; }
 .box-4:hover .icon-svg { fill: white; }
     </style>
 </head>
@@ -664,21 +640,19 @@
         </div>
     </section>
 
-   <!-- FOOTER -->
-<footer class="bg-slate-900 text-white py-12 mt-auto border-t-4 border-pink-500 relative">
-    <div class="absolute top-0 left-0 w-full h-1 bg-gradient-to-r from-pink-500 via-purple-500 to-indigo-500"></div>
+<!-- FOOTER -->
+<footer class="bg-slate-900 text-white py-12 mt-auto border-t-4 border-pink-500">
     <div class="container mx-auto px-6 text-center">
         
         <h4 class="text-2xl font-bold text-pink-400 mb-8 drop-shadow-[0_0_5px_rgba(236,72,153,0.8)]">Connect With Me</h4>
         
-        <!-- ANIMATED SOCIAL CARD START -->
+        <!-- ANIMATED SOCIAL CARD -->
         <div class="social-card">
             <div class="social-background"></div>
             
             <!-- Center Logo Text -->
             <div class="social-logo">
-                <span>Socials</span>
-                <span class="text-xs font-light">Hover Me</span>
+                SB.
             </div>
             
             <!-- 1. LinkedIn -->

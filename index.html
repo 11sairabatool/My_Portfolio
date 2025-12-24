@@ -1,0 +1,526 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Saira Batool - Portfolio</title>
+    <!-- Favicon (SB Logo) -->
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><circle cx='50' cy='50' r='50' fill='%23ec4899'/><text x='50' y='70' font-family='Arial' font-size='50' font-weight='bold' fill='white' text-anchor='middle'>SB</text></svg>">
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        html { scroll-behavior: smooth; }
+        ::-webkit-scrollbar { width: 10px; }
+        ::-webkit-scrollbar-thumb { background: #ec4899; border-radius: 5px; }
+        ::-webkit-scrollbar-track { background: #fdf2f8; }
+
+        /* --- CUSTOM LIGHT PINK NEON BACKGROUNDS --- */
+        .neon-section-pink {
+            background: radial-gradient(circle at center, rgba(253, 242, 248, 0.9) 0%, rgba(255, 255, 255, 0.6) 100%);
+            box-shadow: 0 0 60px rgba(236, 72, 153, 0.15) inset;
+        }
+        .neon-section-rose {
+            background: radial-gradient(circle at center, rgba(255, 241, 242, 0.9) 0%, rgba(255, 255, 255, 0.6) 100%);
+            box-shadow: 0 0 60px rgba(244, 63, 94, 0.15) inset;
+        }
+        .neon-section-lavender {
+            background: radial-gradient(circle at center, rgba(250, 245, 255, 0.9) 0%, rgba(253, 242, 248, 0.6) 100%);
+            box-shadow: 0 0 60px rgba(216, 180, 254, 0.15) inset;
+        }
+        .neon-section-slate {
+            background: radial-gradient(circle at center, #f8fafc 0%, #e2e8f0 100%);
+            box-shadow: 0 0 50px rgba(71, 85, 105, 0.1) inset;
+        }
+        .neon-section-soft {
+            background: radial-gradient(circle at center, #ffffff 0%, #fdf2f8 100%);
+            box-shadow: 0 0 60px rgba(249, 168, 212, 0.2) inset;
+        }
+        .neon-card {
+            transition: all 0.3s ease;
+        }
+        .neon-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 30px rgba(236, 72, 153, 0.15);
+        }
+
+        /* --- WHATSAPP BUTTON (Pink Theme) --- */
+.whatsapp-btn {
+  background-color: #fff;
+  border: 1px solid #ec4899; /* Pink Border */
+  padding: 5px;
+  position: relative;
+  width: 7.5em; /* Thora chora kia taake text fit aye */
+  height: 2.5em;
+  transition: 0.5s;
+  font-size: 17px;
+  border-radius: 0.4em;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-decoration: none; /* Link k liye zaroori */
+  box-shadow: 0 5px 15px rgba(236, 72, 153, 0.2);
+}
+
+.whatsapp-btn p {
+  position: absolute;
+  top: 0.6em;
+  left: 1.15em;
+  margin: 0;
+  padding: 0;
+  transition: .5s;
+  color: #ec4899; /* Pink Text */
+  font-weight: bold;
+  font-family: sans-serif;
+  line-height: 1;
+}
+
+.whatsapp-btn svg {
+  position: absolute;
+  top: 0.65em;
+  right: 0.6em;
+  margin: 0;
+  padding: 0;
+  opacity: 0;
+  transition: 0.5s;
+  height: 1.2em;
+  width: 1.2em;
+  fill: #fff; /* Icon White */
+}
+
+/* Hover Effects */
+.whatsapp-btn:hover p {
+  left: 0.8em;
+  color: #fff; /* Hover pe text white */
+}
+
+.whatsapp-btn:hover svg {
+  opacity: 1;
+}
+
+.whatsapp-btn:hover {
+  background-color: #ec4899; /* Hover pe background Pink */
+  transform: translateY(-3px); /* Thora upar uthay ga */
+}
+
+/* --- PRELOADER CSS (Pink & Purple Theme) --- */
+.loader-wrapper {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 180px;
+  height: 180px;
+  font-family: "Inter", sans-serif;
+  font-size: 1.2em;
+  font-weight: bold;
+  color: #ec4899; /* Text Color Pink */
+  border-radius: 50%;
+  background-color: transparent;
+  user-select: none;
+}
+
+.loader {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  aspect-ratio: 1 / 1;
+  border-radius: 50%;
+  background-color: transparent;
+  animation: loader-rotate 2s linear infinite;
+  z-index: 0;
+}
+
+@keyframes loader-rotate {
+  0% {
+    transform: rotate(90deg);
+    box-shadow:
+      0 10px 20px 0 #ffffff inset,
+      0 20px 30px 0 #d8b4fe inset,  /* Light Purple */
+      0 60px 60px 0 #ec4899 inset;  /* Main Pink */
+  }
+  50% {
+    transform: rotate(270deg);
+    box-shadow:
+      0 10px 20px 0 #ffffff inset,
+      0 20px 10px 0 #c084fc inset,  /* Darker Purple */
+      0 40px 60px 0 #be185d inset;  /* Dark Pink */
+  }
+  100% {
+    transform: rotate(450deg);
+    box-shadow:
+      0 10px 20px 0 #ffffff inset,
+      0 20px 30px 0 #d8b4fe inset,  /* Light Purple */
+      0 60px 60px 0 #ec4899 inset;  /* Main Pink */
+  }
+}
+
+.loader-letter {
+  display: inline-block;
+  opacity: 0.4;
+  transform: translateY(0);
+  animation: loader-letter-anim 2s infinite;
+  z-index: 1;
+  border-radius: 50ch;
+  border: none;
+}
+
+/* Letters Delay (Same as before) */
+.loader-letter:nth-child(1) { animation-delay: 0s; }
+.loader-letter:nth-child(2) { animation-delay: 0.1s; }
+.loader-letter:nth-child(3) { animation-delay: 0.2s; }
+.loader-letter:nth-child(4) { animation-delay: 0.3s; }
+.loader-letter:nth-child(5) { animation-delay: 0.4s; }
+.loader-letter:nth-child(6) { animation-delay: 0.5s; }
+.loader-letter:nth-child(7) { animation-delay: 0.6s; }
+.loader-letter:nth-child(8) { animation-delay: 0.7s; }
+.loader-letter:nth-child(9) { animation-delay: 0.8s; }
+.loader-letter:nth-child(10) { animation-delay: 0.9s; }
+
+@keyframes loader-letter-anim {
+  0%, 100% { opacity: 0.4; transform: translateY(0); }
+  20% { opacity: 1; transform: scale(1.15); color: #be185d; } /* Highlight Color */
+  40% { opacity: 0.7; transform: translateY(0); }
+}
+    </style>
+</head>
+<body class="bg-slate-50 text-slate-800 font-sans">
+
+      <div id="preloader" class="fixed inset-0 z-[9999] flex items-center justify-center bg-slate-50 transition-opacity duration-500">
+       <div class="loader-wrapper">
+  <span class="loader-letter">L</span>
+  <span class="loader-letter">o</span>
+  <span class="loader-letter">a</span>
+  <span class="loader-letter">d</span>
+  <span class="loader-letter">i</span>
+  <span class="loader-letter">n</span>
+  <span class="loader-letter">g</span>
+  
+  <div class="loader"></div>
+</div>
+    </div>
+
+    <!-- HEADER -->
+    <header class="bg-white/80 backdrop-blur-md shadow-md sticky top-0 z-50 border-b border-pink-100">
+        <div class="container mx-auto px-6 py-4 flex justify-between items-center">
+            <a href="#home" class="text-3xl font-extrabold text-slate-800 tracking-tighter cursor-pointer hover:opacity-80 transition duration-300 flex items-baseline">
+                SB<span class="text-pink-500 text-4xl drop-shadow-[0_0_5px_rgba(236,72,153,0.8)]">.</span>
+            </a>
+            <nav class="hidden md:flex space-x-6 text-sm font-medium">
+                <a href="#home" class="hover:text-pink-500 transition">Home</a>
+                <a href="#about" class="hover:text-pink-500 transition">About</a>
+                <a href="#education" class="hover:text-pink-500 transition">Education</a>
+                <a href="#experience" class="hover:text-pink-500 transition">Experience</a>
+                <a href="#skills" class="hover:text-pink-500 transition">Skills</a>
+                <a href="#projects" class="hover:text-pink-500 transition">Projects</a>
+                <a href="#contact" class="hover:text-pink-500 transition">Contact</a>
+            </nav>
+            <button class="md:hidden text-pink-600"><svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16m-7 6h7"></path></svg></button>
+        </div>
+    </header>
+
+    <!-- 1. HERO -->
+   
+    <!-- 1. HERO SECTION (Image Left, Text Right) -->
+<section id="home" class="container mx-auto px-6 pt-12 pb-20 flex flex-col md:flex-row items-center justify-between min-h-[90vh]">
+    
+    <!-- 1. LEFT SIDE: IMAGE (Ab ye pehle ayega) -->
+    <div class="md:w-1/2 flex justify-center w-full mb-10 md:mb-0" data-aos="zoom-in" data-aos-duration="1500">
+        <div class="relative w-72 h-72 md:w-96 md:h-96">
+            <!-- Neon Background Blob -->
+            <div class="absolute inset-0 bg-pink-300 rounded-full blur-3xl opacity-30 -z-10 animate-pulse"></div>
+            <!-- Profile Image -->
+            <img src="images/saira.png" alt="Saira Batool" class="w-full h-full object-cover rounded-full border-4 border-white shadow-2xl shadow-pink-500/20">
+        </div>
+    </div>
+
+    <!-- 2. RIGHT SIDE: TEXT (Ab ye baad mein ayega) -->
+    <div class="md:w-1/2 space-y-6 text-center md:text-left md:pl-10" data-aos="fade-left" data-aos-duration="1200">
+        
+        <!-- Unique & Engaging Headline -->
+        <h2 class="text-4xl md:text-6xl font-bold text-slate-800 leading-tight">
+            Turning Logic into <br>
+            <span class="text-pink-500 whitespace-nowrap drop-shadow-[0_0_10px_rgba(236,72,153,0.3)]">Digital Art.</span>
+        </h2>
+        
+        <!-- Engaging Subtext -->
+        <p class="text-lg text-slate-600 leading-relaxed">
+            Hi, I'm <b class="text-slate-800">Saira Batool</b>. I bridge the gap between complex code and beautiful design. Specializing in building intuitive, high-performance web applications that make an impact.
+        </p>
+        
+        <!-- Buttons -->
+        <div class="pt-4 flex flex-col md:flex-row gap-4 justify-center md:justify-start">
+            <a href="#contact" class="bg-pink-500 text-white px-8 py-3 rounded-lg shadow-lg shadow-pink-500/30 hover:bg-pink-600 transition hover:shadow-pink-500/50 font-bold">
+                Let's Collaborate
+            </a>
+            <a href="#projects" class="border border-pink-500 text-pink-500 px-8 py-3 rounded-lg hover:bg-pink-50 transition hover:shadow-[0_0_15px_rgba(236,72,153,0.3)] font-bold">
+                See My Work
+            </a>
+        </div>
+    </div>
+
+</section>
+
+    <!-- 2. ABOUT -->
+    <section id="about" class="py-20 neon-section-pink border-t border-pink-100">
+        <div class="container mx-auto px-6">
+            <h2 class="text-3xl font-bold text-center text-pink-700 mb-16 drop-shadow-sm">About Me</h2>
+            <div class="max-w-4xl mx-auto">
+                <h3 class="text-2xl font-bold text-slate-800 border-l-4 border-pink-500 pl-4 mb-6">Professional Summary</h3>
+                <div class="bg-white/80 backdrop-blur-sm p-8 rounded-xl border border-pink-100 shadow-[0_0_30px_rgba(236,72,153,0.1)] relative overflow-hidden neon-card">
+                    <div class="absolute top-0 right-0 -mt-4 -mr-4 w-24 h-24 bg-pink-100 rounded-full opacity-50 blur-xl"></div>
+                    <p class="text-slate-600 leading-relaxed mb-4 text-lg">
+                        I am a driven <b>Computer Science undergraduate</b> at <b>Lahore Garrison University</b>, currently excelling in my <b>3rd Semester</b> with a recent GPA of <b>3.58</b>. My academic foundation is built on core concepts like <b>DSA and C++</b>, which I actively apply in real-world scenarios.
+                    </p>
+                    <p class="text-slate-600 leading-relaxed text-lg">
+                        With hands-on industry exposure from <b>TechTide Co.</b> and leadership experience as a <b>Design Co-Lead</b> at SE TECH Society, I blend technical expertise with creative problem-solving. My ambition is to evolve into a <b>Full Stack Developer</b> and integrate <b>Artificial Intelligence</b> to build next-generation smart applications.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 3. EDUCATION -->
+    <section id="education" class="py-20 neon-section-rose border-t border-pink-100">
+        <div class="container mx-auto px-6 max-w-4xl">
+            <h2 class="text-3xl font-bold text-center text-pink-700 mb-16 drop-shadow-sm">Education Timeline</h2>
+            <div class="relative border-l-2 border-pink-300 ml-4 space-y-12">
+                <div class="ml-10 relative">
+                    <span class="absolute -left-[49px] top-1 flex h-6 w-6 items-center justify-center rounded-full bg-pink-500 ring-4 ring-pink-50 shadow-[0_0_10px_rgba(236,72,153,0.5)]"></span>
+                    <div class="bg-white/90 p-6 rounded-lg border border-pink-100 shadow-sm neon-card">
+                        <h4 class="font-bold text-xl text-slate-800">BS Computer Science</h4>
+                        <p class="text-pink-600 font-medium">Lahore Garrison University | 2024 - Present</p>
+                        <p class="text-sm text-slate-500 mb-3">3rd Semester | Recent GPA: <b>3.58</b></p>
+                        <p class="text-slate-600 leading-relaxed">Currently diving deep into core computing concepts. I have mastered <b>Object-Oriented Programming (OOP)</b> and am currently working on advanced <b>Data Structures & Algorithms (DSA)</b>.</p>
+                    </div>
+                </div>
+                <div class="ml-10 relative">
+                    <span class="absolute -left-[49px] top-1 flex h-6 w-6 items-center justify-center rounded-full bg-pink-400 ring-4 ring-pink-50 shadow"></span>
+                    <div class="bg-white/90 p-6 rounded-lg border border-pink-100 shadow-sm neon-card">
+                        <h4 class="font-bold text-xl text-slate-800">FSc Pre-Engineering</h4>
+                        <p class="text-slate-600 font-medium">Garrison College for Girls (Tufail Road) | 2022 - 2024</p>
+                        <p class="text-sm text-slate-500 mb-3">Grade: <b>B</b></p>
+                        <p class="text-slate-600 leading-relaxed">This phase was crucial in developing my analytical skills. I gained a strong command over <b>Mathematics and Physics</b>, which laid the groundwork for my engineering career.</p>
+                    </div>
+                </div>
+                <div class="ml-10 relative">
+                    <span class="absolute -left-[49px] top-1 flex h-6 w-6 items-center justify-center rounded-full bg-pink-400 ring-4 ring-pink-50 shadow"></span>
+                    <div class="bg-white/90 p-6 rounded-lg border border-pink-100 shadow-sm neon-card">
+                        <h4 class="font-bold text-xl text-slate-800">Matriculation</h4>
+                        <p class="text-slate-600 font-medium">Rangers Public School (RPS) | Completed 2022</p>
+                        <p class="text-sm text-slate-500 mb-3">Grade: <b>A</b></p>
+                        <p class="text-slate-600 leading-relaxed">My school years at RPS instilled discipline and a strong work ethic in me. Achieving an 'A' grade reflected my dedication.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 4. EXPERIENCE -->
+    <section id="experience" class="py-20 neon-section-lavender border-t border-pink-100">
+        <div class="container mx-auto px-6 max-w-5xl">
+            <h2 class="text-3xl font-bold text-center text-purple-800 mb-16 drop-shadow-sm">Experience & Leadership</h2>
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+                <div class="bg-white/90 p-6 rounded-xl border border-pink-200 shadow-[0_0_15px_rgba(236,72,153,0.1)] neon-card relative overflow-hidden group">
+                    <div class="absolute top-0 left-0 w-1 h-full bg-pink-500 group-hover:bg-pink-600 transition"></div>
+                    <div class="flex justify-between items-start mb-2">
+                        <h4 class="font-bold text-lg text-pink-700">Frontend Development Intern</h4>
+                        <span class="text-xs font-bold bg-pink-100 text-pink-700 px-2 py-1 rounded">3 Months</span>
+                    </div>
+                    <p class="text-slate-800 font-medium mb-1">TECHTIDE CO.</p>
+                    <p class="text-slate-600 text-sm">Worked with <b>React.js, Tailwind, & Node.js</b>. Enhanced technical expertise.</p>
+                </div>
+                <div class="bg-white/90 p-6 rounded-xl border border-pink-200 shadow-[0_0_15px_rgba(236,72,153,0.1)] neon-card relative overflow-hidden group">
+                    <div class="absolute top-0 left-0 w-1 h-full bg-purple-500 group-hover:bg-purple-600 transition"></div>
+                    <div class="flex justify-between items-start mb-2">
+                        <h4 class="font-bold text-lg text-slate-800">Design Co-Lead</h4>
+                        <span class="text-xs font-bold bg-purple-100 text-purple-700 px-2 py-1 rounded">Leadership</span>
+                    </div>
+                    <p class="text-pink-600 font-medium mb-1">SE TECH Society</p>
+                    <p class="text-slate-600 text-sm">Leading visual branding with designs for standees & posters.</p>
+                </div>
+                <div class="bg-white/90 p-6 rounded-xl border border-pink-200 shadow-[0_0_15px_rgba(236,72,153,0.1)] neon-card relative overflow-hidden group">
+                    <div class="absolute top-0 left-0 w-1 h-full bg-teal-500 group-hover:bg-teal-600 transition"></div>
+                    <div class="flex justify-between items-start mb-2">
+                        <h4 class="font-bold text-lg text-slate-800">Robotics Workshop</h4>
+                        <span class="text-xs font-bold bg-teal-100 text-teal-700 px-2 py-1 rounded">2 Days</span>
+                    </div>
+                    <p class="text-pink-600 font-medium mb-1">LGU Workshop</p>
+                    <p class="text-slate-600 text-sm">Hands-on experience in robot training & control mechanisms.</p>
+                </div>
+                <div class="bg-white/90 p-6 rounded-xl border border-pink-200 shadow-[0_0_15px_rgba(236,72,153,0.1)] neon-card relative overflow-hidden group">
+                    <div class="absolute top-0 left-0 w-1 h-full bg-indigo-500 group-hover:bg-indigo-600 transition"></div>
+                    <div class="flex justify-between items-start mb-2">
+                        <h4 class="font-bold text-lg text-slate-800">IEEE Seminar</h4>
+                        <span class="text-xs font-bold bg-indigo-100 text-indigo-700 px-2 py-1 rounded">Seminar</span>
+                    </div>
+                    <p class="text-pink-600 font-medium mb-1">IEEE Faisalabad</p>
+                    <p class="text-slate-600 text-sm">Sessions on <b>Women Empowerment, AI & Future Tech</b>.</p>
+                </div>
+                <div class="bg-white/90 p-6 rounded-xl border border-pink-200 shadow-[0_0_15px_rgba(236,72,153,0.1)] neon-card relative overflow-hidden group col-span-1 md:col-span-2">
+                    <div class="absolute top-0 left-0 w-1 h-full bg-red-500 group-hover:bg-red-600 transition"></div>
+                    <h4 class="font-bold text-lg text-slate-800">TEDx Speaker (2023)</h4>
+                    <p class="text-slate-600 text-sm mt-1">Delivered an impactful talk on career resilience at Garrison College.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 5. EXPERTISE -->
+    <section id="skills" class="py-20 neon-section-slate border-t border-slate-200">
+        <div class="container mx-auto px-6 max-w-5xl">
+            <h2 class="text-3xl font-bold text-center text-slate-800 mb-12 drop-shadow-sm">My Expertise</h2>
+            <div class="grid grid-cols-2 md:grid-cols-4 gap-6 text-center">
+                <!-- C++ -->
+                <div class="bg-white p-6 rounded-xl border border-slate-200 shadow-sm hover:border-pink-400 transition hover:-translate-y-1 transform flex flex-col items-center gap-3">
+                    <svg class="w-10 h-10 text-pink-600" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 20l4-16m4 4l4 4-4 4M6 16l-4-4 4-4"></path></svg>
+                    <span class="text-pink-600 text-xl font-bold">C++</span>
+                </div>
+                <!-- DSA -->
+                <div class="bg-white p-6 rounded-xl border border-slate-200 shadow-sm hover:border-pink-400 transition hover:-translate-y-1 transform flex flex-col items-center gap-3">
+                    <svg class="w-10 h-10 text-pink-600" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19.428 15.428a2 2 0 00-1.022-.547l-2.384-.477a6 6 0 00-3.86.517l-.318.158a6 6 0 01-3.86.517L6.05 15.21a2 2 0 00-1.806.547M8 4h8l-1 1v5.172a2 2 0 00.586 1.414l5 5c1.26 1.26.367 3.414-1.415 3.414H4.828c-1.782 0-2.674-2.154-1.414-3.414l5-5A2 2 0 009 10.172V5L8 4z"></path></svg>
+                    <span class="text-pink-600 text-xl font-bold">DSA</span>
+                </div>
+                <!-- React -->
+                <div class="bg-white p-6 rounded-xl border border-slate-200 shadow-sm hover:border-pink-400 transition hover:-translate-y-1 transform flex flex-col items-center gap-3">
+                    <svg class="w-10 h-10 text-pink-600" fill="currentColor" viewBox="0 0 24 24"><path d="M12 2C6.486 2 2 6.486 2 12s4.486 10 10 10 10-4.486 10-10S17.514 2 12 2zm0 18c-4.411 0-8-3.589-8-8s3.589-8 8-8 8 3.589 8 8-3.589 8-8 8z"/><circle cx="12" cy="12" r="2"/></svg>
+                    <span class="text-pink-600 text-xl font-bold">React.js</span>
+                </div>
+                <!-- Node -->
+                <div class="bg-white p-6 rounded-xl border border-slate-200 shadow-sm hover:border-pink-400 transition hover:-translate-y-1 transform flex flex-col items-center gap-3">
+                    <svg class="w-10 h-10 text-pink-600" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 11H5m14 0a2 2 0 012 2v6a2 2 0 01-2 2H5a2 2 0 01-2-2v-6a2 2 0 012-2m14 0V9a2 2 0 00-2-2M5 11V9a2 2 0 012-2m0 0V5a2 2 0 012-2h6a2 2 0 012 2v2M7 7h10"></path></svg>
+                    <span class="text-pink-600 text-xl font-bold">Node.js</span>
+                </div>
+                <!-- Tailwind -->
+                <div class="bg-white p-6 rounded-xl border border-slate-200 shadow-sm hover:border-pink-400 transition hover:-translate-y-1 transform flex flex-col items-center gap-3">
+                    <svg class="w-10 h-10 text-pink-600" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14.752 11.168l-3.197-2.132A1 1 0 0010 9.87v4.263a1 1 0 001.555.832l3.197-2.132a1 1 0 000-1.664z"></path><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 12a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg>
+                    <span class="text-pink-600 text-xl font-bold">Tailwind</span>
+                </div>
+                <!-- JS -->
+                <div class="bg-white p-6 rounded-xl border border-slate-200 shadow-sm hover:border-pink-400 transition hover:-translate-y-1 transform flex flex-col items-center gap-3">
+                    <svg class="w-10 h-10 text-pink-600" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z"></path></svg>
+                    <span class="text-pink-600 text-xl font-bold">JavaScript</span>
+                </div>
+                <!-- Office -->
+                <div class="bg-white p-6 rounded-xl border border-slate-200 shadow-sm hover:border-pink-400 transition hover:-translate-y-1 transform flex flex-col items-center gap-3">
+                    <svg class="w-10 h-10 text-pink-600" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"></path></svg>
+                    <span class="text-pink-600 text-xl font-bold">MS Office</span>
+                </div>
+                <!-- Speaking -->
+                <div class="bg-white p-6 rounded-xl border border-slate-200 shadow-sm hover:border-green-400 transition hover:-translate-y-1 transform flex flex-col items-center gap-3">
+                    <svg class="w-10 h-10 text-green-600" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 11a7 7 0 01-7 7m0 0a7 7 0 01-7-7m7 7v4m0 0H8m4 0h4m-4-8a3 3 0 01-3-3V5a3 3 0 116 0v6a3 3 0 01-3 3z"></path></svg>
+                    <span class="text-green-600 text-lg font-bold">Public Speaking</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 6. PROJECTS (UPDATED 4TH IMAGE to UI Design) -->
+    <section id="projects" class="py-20 neon-section-soft border-t border-pink-50">
+        <div class="container mx-auto px-6">
+            <h2 class="text-3xl font-bold text-center text-pink-700 mb-12 drop-shadow-sm">Recent Projects</h2>
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-8 px-6 max-w-5xl mx-auto">
+                
+                <!-- Project 1 -->
+                <div class="bg-white/90 rounded-xl border border-pink-100 overflow-hidden shadow-sm neon-card hover:shadow-pink-300/50">
+                    <img src="https://images.unsplash.com/photo-1545665277-5937489579f2?auto=format&fit=crop&w=800&q=80" alt="Portfolio" class="w-full h-48 object-cover">
+                    <div class="p-6">
+                        <h4 class="font-bold text-xl text-slate-800 mb-2">Portfolio Website</h4>
+                        <p class="text-slate-600 text-sm mb-4">A professional personal portfolio built with pure HTML, Tailwind CSS, and JavaScript with a neon theme.</p>
+                        <a href="#" class="text-pink-500 font-bold hover:underline">View Code &rarr;</a>
+                    </div>
+                </div>
+
+                <!-- Project 2 -->
+                <div class="bg-white/90 rounded-xl border border-pink-100 overflow-hidden shadow-sm neon-card hover:shadow-pink-300/50">
+                    <img src="https://images.unsplash.com/photo-1454165804606-c3d57bc86b40?auto=format&fit=crop&w=800&q=80" alt="FYP Portal" class="w-full h-48 object-cover">
+                    <div class="p-6">
+                        <h4 class="font-bold text-xl text-slate-800 mb-2">FYP Student Portal</h4>
+                        <p class="text-slate-600 text-sm mb-4">A centralized dashboard for students and faculty to manage academic final year projects efficiently.</p>
+                        <a href="#" class="text-pink-500 font-bold hover:underline">View Code &rarr;</a>
+                    </div>
+                </div>
+
+                <!-- Project 3 -->
+                <div class="bg-white/90 rounded-xl border border-pink-100 overflow-hidden shadow-sm neon-card hover:shadow-pink-300/50">
+                    <img src="https://images.unsplash.com/photo-1560518883-ce09059eeffa?auto=format&fit=crop&w=800&q=80" alt="Real Estate" class="w-full h-48 object-cover">
+                    <div class="p-6">
+                        <h4 class="font-bold text-xl text-slate-800 mb-2">Real Estate Website</h4>
+                        <p class="text-slate-600 text-sm mb-4">Modern UI for a property business connecting buyers with luxury dream homes.</p>
+                        <a href="#" class="text-pink-500 font-bold hover:underline">View Code &rarr;</a>
+                    </div>
+                </div>
+
+                <!-- Project 4: Figma UI (UPDATED IMAGE) -->
+                <div class="bg-white/90 rounded-xl border border-pink-100 overflow-hidden shadow-sm neon-card hover:shadow-pink-300/50">
+                    <!-- CHANGED TO A UI/DESIGN IMAGE -->
+                    <img src="https://images.unsplash.com/photo-1581291518633-83b4ebd1d83e?auto=format&fit=crop&w=800&q=80" alt="Figma UI" class="w-full h-48 object-cover object-top">
+                    <div class="p-6">
+                        <h4 class="font-bold text-xl text-slate-800 mb-2">Figma Design to UI</h4>
+                        <p class="text-slate-600 text-sm mb-4">Converted a complex Figma design into a pixel-perfect responsive HTML/CSS web page.</p>
+                        <a href="#" class="text-pink-500 font-bold hover:underline">View Code &rarr;</a>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- 7. FEEDBACK -->
+    <section id="feedback" class="py-20 neon-section-pink border-t border-pink-100">
+        <div class="max-w-2xl mx-auto px-6 text-center">
+            <h2 class="text-3xl font-bold text-pink-700 mb-6 drop-shadow-sm">Feedback</h2>
+            <p class="text-slate-600 mb-8">I appreciate your honest feedback to help me improve my work.</p>
+            <div class="bg-white/90 p-8 rounded-xl shadow-md border border-pink-200 neon-card">
+                <textarea class="w-full border border-slate-300 p-4 rounded-lg focus:outline-none focus:ring-2 focus:ring-pink-500 transition" rows="4" placeholder="Your thoughts..."></textarea>
+                <button class="mt-4 bg-pink-500 text-white px-8 py-3 rounded-lg hover:bg-pink-600 transition w-full md:w-auto">Submit Feedback</button>
+            </div>
+        </div>
+    </section>
+
+    <!-- 8. CONTACT -->
+    <section id="contact" class="py-20 neon-section-pink border-t border-pink-100">
+        <div class="max-w-xl mx-auto px-6">
+            <h2 class="text-3xl font-bold text-center text-pink-700 mb-8 drop-shadow-sm">Get In Touch</h2>
+            <form class="space-y-6 bg-white/80 p-8 rounded-xl shadow-md border border-pink-100 neon-card">
+                <input type="text" class="w-full bg-pink-50/50 border border-pink-200 px-4 py-3 rounded-lg focus:outline-none focus:ring-2 focus:ring-pink-500 transition" placeholder="Your Name">
+                <input type="email" class="w-full bg-pink-50/50 border border-pink-200 px-4 py-3 rounded-lg focus:outline-none focus:ring-2 focus:ring-pink-500 transition" placeholder="Your Email">
+                <textarea class="w-full bg-pink-50/50 border border-pink-200 px-4 py-3 rounded-lg focus:outline-none focus:ring-2 focus:ring-pink-500 transition h-32" placeholder="Your Message"></textarea>
+                <button type="button" class="w-full bg-pink-500 text-white py-3 rounded-lg font-bold hover:bg-pink-600 transition">Send Message</button>
+            </form>
+
+            <!-- Form khatam honay k baad ye paste karein -->
+<div class="mt-8 flex flex-col items-center gap-4">
+    <p class="text-slate-500 text-sm">Or chat with me directly:</p>
+    
+    <!-- WhatsApp Button Link -->
+    <a href="https://wa.me/923446689582" target="_blank" class="whatsapp-btn">
+        <p>WhatsApp</p>
+        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-whatsapp" viewBox="0 0 16 16">
+            <path d="M13.601 2.326A7.854 7.854 0 0 0 7.994 0C3.627 0 .068 3.558.064 7.926c0 1.399.366 2.76 1.057 3.965L0 16l4.204-1.102a7.933 7.933 0 0 0 3.79.965h.004c4.368 0 7.926-3.558 7.93-7.93A7.898 7.898 0 0 0 13.6 2.326zM7.994 14.521a6.573 6.573 0 0 1-3.356-.92l-.24-.144-2.494.654.666-2.433-.156-.251a6.56 6.56 0 0 1-1.007-3.505c0-3.626 2.957-6.584 6.591-6.584a6.56 6.56 0 0 1 4.66 1.931 6.557 6.557 0 0 1 1.928 4.66c-.004 3.639-2.961 6.592-6.592 6.592zm3.615-4.934c-.197-.099-1.17-.578-1.353-.646-.182-.065-.315-.099-.445.099-.133.197-.513.646-.627.775-.114.133-.232.148-.43.05-.197-.1-.836-.308-1.592-.985-.59-.525-.985-1.175-1.103-1.372-.114-.198-.011-.304.088-.403.087-.088.197-.232.296-.346.1-.114.133-.198.198-.33.065-.134.034-.248-.015-.347-.05-.099-.445-1.076-.612-1.47-.16-.389-.323-.335-.445-.34-.114-.007-.247-.007-.38-.007a.729.729 0 0 0-.529.247c-.182.198-.691.677-.691 1.654 0 .977.71 1.916.81 2.049.098.133 1.394 2.132 3.383 2.992.47.205.84.326 1.129.418.475.152.904.129 1.246.08.38-.058 1.171-.48 1.338-.943.164-.464.164-.86.114-.943-.049-.084-.182-.133-.38-.232z"></path>
+        </svg>
+    </a>
+</div>
+        </div>
+    </section>
+
+    <!-- FOOTER -->
+    <footer class="bg-slate-900 text-white py-12 mt-auto border-t-4 border-pink-500">
+        <div class="container mx-auto px-6 text-center">
+            <h4 class="text-2xl font-bold text-pink-400 mb-6 drop-shadow-[0_0_5px_rgba(236,72,153,0.8)]">Saira Batool</h4>
+            <div class="flex justify-center gap-6 mb-8">
+                <a href="https://www.linkedin.com/in/saira-batool-cs" target="_blank" class="w-12 h-12 bg-slate-800 rounded-full flex items-center justify-center hover:bg-pink-600 transition duration-300"><svg class="w-5 h-5 fill-current" viewBox="0 0 24 24"><path d="M4.98 3.5c0 1.381-1.11 2.5-2.48 2.5s-2.48-1.119-2.48-2.5c0-1.38 1.11-2.5 2.48-2.5s2.48 1.12 2.48 2.5zm.02 4.5h-5v16h5v-16zm7.982 0h-4.968v16h5v-8.321c0-4.954 5.46-4.425 5.46 2.48v5.841h4.97v-8.717c0-7.82-8.431-9.39-12.066-4.706v-2.577z"/></svg></a>
+                <a href="https://github.com" target="_blank" class="w-12 h-12 bg-slate-800 rounded-full flex items-center justify-center hover:bg-gray-700 transition duration-300"><svg class="w-5 h-5 fill-current" viewBox="0 0 24 24"><path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z"/></svg></a>
+                <a href="https://www.instagram.com/7.sairaww?igsh=NWRhNXR4YXNlY2Rq" target="_blank" class="w-12 h-12 bg-slate-800 rounded-full flex items-center justify-center hover:bg-pink-600 transition duration-300"><svg class="w-5 h-5 fill-current" viewBox="0 0 24 24"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/></svg></a>
+                <a href="mailto:462sairabatool@gmail.com" class="w-12 h-12 bg-slate-800 rounded-full flex items-center justify-center hover:bg-red-500 transition duration-300"><svg class="w-5 h-5 fill-current" viewBox="0 0 24 24"><path d="M0 3v18h24v-18h-24zm6.623 7.929l-4.623 5.712v-11.174l4.623 5.462zm5.377 2.738l-5.354-6.324h10.728l-5.374 6.324zm6.637-2.738l4.363-5.166v11.166l-4.363-6z"/></svg></a>
+            </div>
+            <div class="border-t border-slate-800 pt-8 text-sm text-slate-500">
+                &copy; 2025 Saira Batool. All rights reserved.
+            </div>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>
